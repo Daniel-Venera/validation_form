@@ -35,6 +35,8 @@ function checkInputs() {
 
   if (passwordValue === "") {
     setErrorFor(password, "Password cannot be blank");
+  } else if (!isPassword(passwordValue)) {
+    setErrorFor(password, "Digit, lower, upper case and 8 characters needed");
   } else {
     setSuccessFor(password);
   }
@@ -62,4 +64,8 @@ function setSuccessFor(input) {
 
 function isEmail(email) {
   return /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(email);
+}
+
+function isPassword(password) {
+  return /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,}$/.test(password);
 }
