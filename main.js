@@ -4,6 +4,11 @@ let username = document.querySelector("#username");
 let email = document.querySelector("#email");
 let password = document.querySelector("#password");
 let password2 = document.querySelector("#password2");
+let formControls = document.querySelectorAll(".form-control");
+let modal = document.querySelector(".modal");
+let modalCloseBtn = document.querySelector(".modal .fa-times");
+
+let successCount = 0;
 
 form.addEventListener("submit", function (e) {
   e.preventDefault();
@@ -48,6 +53,18 @@ function checkInputs() {
   } else {
     setSuccessFor(password2);
   }
+
+  formControls.forEach(function (e) {
+    if (e.classList.contains("success")) {
+      successCount++;
+    }
+  });
+
+  if (successCount == formControls.length) {
+    modal.style.display = "flex";
+  }
+
+  successCount = 0;
 }
 
 function setErrorFor(input, message) {
@@ -69,3 +86,7 @@ function isEmail(email) {
 function isPassword(password) {
   return /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,}$/.test(password);
 }
+
+modalCloseBtn.addEventListener("click", function () {
+  modal.style.display = "none";
+});

@@ -105,6 +105,34 @@ body {
   width: 100%;
 }
 
+.modal {
+  display: none;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+.modal-content {
+  background-color: white;
+  padding: 40px 20px;
+  width: 300px;
+  border-radius: 4px;
+  font-size: 18px;
+  line-height: 28px;
+  text-align: center;
+  position: relative;
+}
+
+.modal-content i {
+  position: absolute;
+  top: 4px;
+  right: 6px;
+  cursor: pointer;
+}
+
 @media (max-width: 380px) {
   .form-control {
     margin-bottom: 20px;
